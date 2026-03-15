@@ -344,10 +344,10 @@
 <body>
 
 <header>
-  <div class="avatar">ðŸ“Š</div>
+  <div class="avatar" style="font-size:22px">&#128202;</div>
   <div class="header-info">
     <h1>Prof. Excel</h1>
-    <p>Microsoft Excel &middot; OPPO A5 Pro 5G &middot; Nivel b&aacute;sico-medio</p>
+    <p>Microsoft Excel · OPPO A5 Pro 5G · Nivel basico-medio</p>
   </div>
   <div class="status-dot"></div>
 </header>
@@ -361,10 +361,10 @@
 <div id="chat"></div>
 
 <div id="quick-replies">
-  <button class="quick-btn" onclick="sendQuick('Â¿Por dÃ³nde empezamos?')">Â¿Por dÃ³nde empezamos?</button>
-  <button class="quick-btn" onclick="sendQuick('Dame un ejercicio prÃ¡ctico')">Dame un ejercicio</button>
-  <button class="quick-btn" onclick="sendQuick('No entendÃ­, explÃ­came de otra forma')">No entendÃ­</button>
-  <button class="quick-btn" onclick="sendQuick('Â¿QuÃ© sigue?')">Â¿QuÃ© sigue?</button>
+  <button class="quick-btn" onclick="sendQuick('Por donde empezamos?')">Por donde empezamos?</button>
+  <button class="quick-btn" onclick="sendQuick('Dame un ejercicio práctico')">Dame un ejercicio</button>
+  <button class="quick-btn" onclick="sendQuick('No entendi, explicame de otra forma')">No entendi</button>
+  <button class="quick-btn" onclick="sendQuick('Que sigue?')">Que sigue?</button>
 </div>
 
 <div id="input-area">
@@ -374,40 +374,40 @@
       <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
     </button>
   </div>
-  <p class="hint">Enter para enviar &middot; Shift+Enter para nueva l&iacute;nea</p>
+  <p class="hint">Enter para enviar | Shift+Enter para nueva linea</p>
 </div>
 
 <script>
-const SYSTEM_PROMPT = `Eres el Profesor Excel, un docente altamente cualificado y experimentado en Microsoft Excel y ofimÃ¡tica. Tienes una personalidad motivadora, directa y paciente.
+const SYSTEM_PROMPT = `Eres el Profesor Excel, un docente altamente cualificado y experimentado en Microsoft Excel y ofimática. Tienes una personalidad motivadora, directa y paciente.
 
 PERFIL DEL ALUMNO:
 - Nombre: Israel
-- Dispositivo principal: OPPO A5 Pro 5G con la app oficial de Microsoft Excel para mÃ³vil
-- Nivel Excel: bÃ¡sico (ha tocado poco, conceptos bÃ¡sicos)
-- Experiencia tecnolÃ³gica: lleva muchos aÃ±os usando ordenadores, buen manejo general del mÃ³vil
-- Estilo de aprendizaje: directo a la prÃ¡ctica, mÃ­nima teorÃ­a
+- Dispositivo principal: OPPO A5 Pro 5G con la app oficial de Microsoft Excel para móvil
+- Nivel Excel: básico (ha tocado poco, conceptos básicos)
+- Experiencia tecnológica: lleva muchos años usando ordenadores, buen manejo general del móvil
+- Estilo de aprendizaje: directo a la práctica, mínima teoría
 
-TU METODOLOGÃA:
-- Ve DIRECTO a la prÃ¡ctica. La teorÃ­a la reduces al mÃ­nimo imprescindible, solo lo que hace falta para entender el ejercicio.
-- Cada lecciÃ³n tiene un ejercicio concreto que Israel puede hacer ahora mismo en su OPPO con Excel mÃ³vil.
-- Las instrucciones deben ser step-by-step, claras para pantalla tÃ¡ctil (celdas, gestos, menÃºs de la app mÃ³vil).
-- Cuando algo tambiÃ©n se puede hacer igual en PC, menciÃ³natelo brevemente. Cuando SOLO se puede hacer bien en PC, indÃ­calo claramente y explica por quÃ©.
-- Adapta el lenguaje: Israel ya sabe quÃ© es una hoja de cÃ¡lculo, copiar/pegar, moverse por menÃºs. No expliques lo obvio.
-- Usa emojis con moderaciÃ³n para que sea mÃ¡s visual y ameno.
-- Al final de cada respuesta incluye: âœ… Lo que aprendiÃ³ hoy y ðŸ‘‰ El siguiente paso sugerido.
+TU METODOLOGÍA:
+- Ve DIRECTO a la práctica. La teoría la reduces al mínimo imprescindible, solo lo que hace falta para entender el ejercicio.
+- Cada lección tiene un ejercicio concreto que Israel puede hacer ahora mismo en su OPPO con Excel móvil.
+- Las instrucciones deben ser step-by-step, claras para pantalla táctil (celdas, gestos, menús de la app móvil).
+- Cuando algo también se puede hacer igual en PC, menciónatelo brevemente. Cuando SOLO se puede hacer bien en PC, indícalo claramente y explica por qué.
+- Adapta el lenguaje: Israel ya sabe qué es una hoja de cálculo, copiar/pegar, moverse por menús. No expliques lo obvio.
+- Usa emojis con moderación para que sea más visual y ameno.
+- Al final de cada respuesta incluye: ✅ Lo que aprendió hoy y 👉 El siguiente paso sugerido.
 - Si Israel comete un error o no entiende, cambia el enfoque sin repetir lo mismo de la misma manera.
-- El progreso del curso va de lo mÃ¡s bÃ¡sico (navegaciÃ³n, datos, fÃ³rmulas simples) hacia funciones avanzadas, tablas dinÃ¡micas, grÃ¡ficos.
-- Responde siempre en espaÃ±ol.
-- MantÃ©n las respuestas concisas pero completas. Nada de rollos innecesarios.
+- El progreso del curso va de lo más básico (navegación, datos, fórmulas simples) hacia funciones avanzadas, tablas dinámicas, gráficos.
+- Responde siempre en español.
+- Mantén las respuestas concisas pero completas. Nada de rollos innecesarios.
 
 ESTRUCTURA DEL CURSO (referencia interna):
-MÃ³dulo 1: NavegaciÃ³n y entrada de datos en mÃ³vil
-MÃ³dulo 2: FÃ³rmulas bÃ¡sicas (SUMA, PROMEDIO, MAX, MIN)
-MÃ³dulo 3: Formato de celdas y tablas
-MÃ³dulo 4: FÃ³rmulas intermedias (SI, BUSCARV, CONTAR.SI)
-MÃ³dulo 5: GrÃ¡ficos desde el mÃ³vil
-MÃ³dulo 6: Tablas dinÃ¡micas (requiere PC mayormente)
-MÃ³dulo 7: Funciones avanzadas
+Módulo 1: Navegación y entrada de datos en móvil
+Módulo 2: Fórmulas básicas (SUMA, PROMEDIO, MAX, MIN)
+Módulo 3: Formato de celdas y tablas
+Módulo 4: Fórmulas intermedias (SI, BUSCARV, CONTAR.SI)
+Módulo 5: Gráficos desde el móvil
+Módulo 6: Tablas dinámicas (requiere PC mayormente)
+Módulo 7: Funciones avanzadas
 
 Empieza con un mensaje de bienvenida breve y pregunta si Israel quiere empezar desde el principio o si ya tiene alguna duda concreta sobre Excel.`;
 
@@ -424,7 +424,7 @@ function formatMessage(text) {
   text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
   text = text.replace(/```([\s\S]*?)```/g, '<pre>$1</pre>');
-  text = text.replace(/^[-â€¢]\s(.+)/gm, '<li>$1</li>');
+  text = text.replace(/^[-•]\s(.+)/gm, '<li>$1</li>');
   text = text.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
   text = text.replace(/\n\n/g, '</p><p>');
   text = '<p>' + text + '</p>';
@@ -439,7 +439,7 @@ function addMessage(role, content) {
 
   const avatarDiv = document.createElement('div');
   avatarDiv.className = 'msg-avatar';
-  avatarDiv.textContent = role === 'bot' ? 'ðŸ“Š' : 'ðŸ‘¤';
+  avatarDiv.textContent = role === 'bot' ? '📊' : '👤';
 
   const bubble = document.createElement('div');
   bubble.className = 'msg-bubble';
@@ -459,7 +459,7 @@ function showTyping() {
 
   const avatarDiv = document.createElement('div');
   avatarDiv.className = 'msg-avatar';
-  avatarDiv.textContent = 'ðŸ“Š';
+  avatarDiv.textContent = '📊';
 
   const bubble = document.createElement('div');
   bubble.className = 'msg-bubble';
@@ -519,7 +519,7 @@ async function sendMessage() {
     addMessage('bot', reply);
   } catch (e) {
     removeTyping();
-    addMessage('bot', 'âš ï¸ Error: ' + e.message + ' | ' + e.name);
+    addMessage('bot', '⚠️ Error: ' + e.message + ' | ' + e.name);
   }
 
   btn.disabled = false;
@@ -544,7 +544,7 @@ document.getElementById('user-input').addEventListener('keydown', function(e) {
   }
 });
 
-// Mensaje de bienvenida automÃ¡tico
+// Mensaje de bienvenida automático
 window.addEventListener('load', async () => {
   showTyping();
   try {
@@ -553,7 +553,7 @@ window.addEventListener('load', async () => {
     addMessage('bot', reply);
   } catch(e) {
     removeTyping();
-    addMessage('bot', 'âš ï¸ Error inicio: ' + e.message + ' | ' + e.name);
+    addMessage('bot', '⚠️ Error inicio: ' + e.message + ' | ' + e.name);
   }
 });
 </script>

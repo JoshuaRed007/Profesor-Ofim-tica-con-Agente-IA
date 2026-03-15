@@ -490,6 +490,8 @@ async function callClaude(userMessage) {
   });
 
   const data = await response.json();
+  if (data.error) throw new Error("API: " + data.error.message);
+  if (!data.content || !data.content[0]) throw new Error("Sin contenido: " + JSON.stringify(data));
   const reply = data.content[0].text;
   conversationHistory.push({ role: 'assistant', content: reply });
   return reply;

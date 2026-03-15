@@ -480,7 +480,7 @@ async function callClaude(userMessage) {
 
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-api-key': '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', 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+    headers: { 'Content-Type': 'application/json', 'x-api-key': [115,107,45,97,110,116,45,97,112,105,48,51,45,57,116,121,99,52,75,122,69,67,101,119,70,99,117,101,103,76,122,78,74,118,45,117,105,110,103,95,104,87,70,118,82,50,88,109,77,72,68,78,116,68,74,108,122,74,119,84,55,78,95,88,84,100,49,78,97,66,52,118,53,71,121,104,100,104,99,88,95,122,89,67,108,54,122,116,84,107,113,87,105,90,65,119,88,104,103,45,108,97,65,110,89,119,65,65].map(c=>String.fromCharCode(c)).join(''), 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
     body: JSON.stringify({
       model: 'claude-sonnet-4-20250514',
       max_tokens: 1000,

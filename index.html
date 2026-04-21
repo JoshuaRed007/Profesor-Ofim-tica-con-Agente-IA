@@ -350,6 +350,7 @@
     <p>Microsoft Excel · OPPO A5 Pro 5G · Nivel basico-medio</p>
   </div>
   <div class="status-dot"></div>
+  <button onclick="if(confirm('Reiniciar progreso desde cero?')){resetProgress();location.reload();}" style="background:none;border:1px solid #1e3326;color:#6b9a7a;font-size:10px;padding:4px 8px;border-radius:6px;cursor:pointer;margin-left:6px;font-family:Syne,sans-serif;">Reset</button>
 </header>
 
 <div class="progress-bar">
@@ -412,7 +413,29 @@ Módulo 7: Funciones avanzadas
 Empieza con un mensaje de bienvenida breve y pregunta si Israel quiere empezar desde el principio o si ya tiene alguna duda concreta sobre Excel.`;
 
 let conversationHistory = [];
-let lessonCount = 0;
+let lessonCount = parseInt(localStorage.getItem('excel_lessonCount') || '0');
+
+function saveProgress() {
+  localStorage.setItem('excel_lessonCount', lessonCount);
+  localStorage.setItem('excel_history', JSON.stringify(conversationHistory));
+}
+
+function loadProgress() {
+  const saved = localStorage.getItem('excel_history');
+  if (saved) {
+    try { conversationHistory = JSON.parse(saved); } catch(e) { conversationHistory = []; }
+  }
+  lessonCount = parseInt(localStorage.getItem('excel_lessonCount') || '0');
+}
+
+function resetProgress() {
+  localStorage.removeItem('excel_lessonCount');
+  localStorage.removeItem('excel_history');
+  lessonCount = 0;
+  conversationHistory = [];
+  document.getElementById('chat').innerHTML = '';
+  updateProgress();
+}
 
 function updateProgress() {
   const pct = Math.min(5 + lessonCount * 3, 100);
@@ -522,6 +545,7 @@ async function sendMessage() {
     addMessage('bot', '⚠️ Error: ' + e.message + ' | ' + e.name);
   }
 
+  saveProgress();
   btn.disabled = false;
   input.focus();
 }
@@ -546,9 +570,17 @@ document.getElementById('user-input').addEventListener('keydown', function(e) {
 
 // Mensaje de bienvenida automático
 window.addEventListener('load', async () => {
+  loadProgress();
+  updateProgress();
   showTyping();
   try {
-    const reply = await callClaude('Hola, empieza el curso por favor.');
+    let prompt;
+    if (conversationHistory.length > 0) {
+      prompt = 'Hola de nuevo. Recuerda que llevamos ' + lessonCount + ' lecciones. Resume brevemente donde lo dejamos y propón continuar desde ahi.';
+    } else {
+      prompt = 'Hola, empieza el curso por favor.';
+    }
+    const reply = await callClaude(prompt);
     removeTyping();
     addMessage('bot', reply);
   } catch(e) {
